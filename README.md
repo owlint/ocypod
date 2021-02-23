@@ -7,6 +7,10 @@
 
 Ocypod is a language-agnostic, Redis-backed job queue server with an HTTP interface and a focus on long running tasks.
 
+## Fork
+
+This fork build a Docker image to run the container as non root user (UID/GID 1000)
+
 ## Features
 
 * simple setup - only requirement is Redis

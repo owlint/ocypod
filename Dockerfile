@@ -6,7 +6,8 @@ RUN cargo build --release
 
 # Copy static binary from build image into minimal Debian-based image
 FROM alpine:latest
-COPY --from=builder \
+RUN addgroup -g 1000 -S ocypod && adduser -u 1000 -G ocypod -S ocypod
+COPY --chown=ocypod:ocypod --from=builder \
     /home/rust/src/target/x86_64-unknown-linux-musl/release/ocypod-server \
     /usr/local/bin/
 EXPOSE 8023
